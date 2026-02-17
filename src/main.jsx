@@ -13,7 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 		future={{
 			v7_relativeSplatPath: true,
 			v7_startTransition: true
-		}}>
+		}}
+    basename='/munira'
+    >
 		<Provider store={store}>
 			<React.StrictMode>
 				<StyledEngineProvider injectFirst>
