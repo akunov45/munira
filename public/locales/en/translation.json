@@ -1,0 +1,80 @@
+{
+  "Услуги": "Services",
+  "Отслеживание": "Tracking",
+  "Расчет стоимости": "Cost Calculation",
+  "Новости и события": "News & Events",
+  "Контакты": "Contacts",
+  "Войти": "Sign In",
+  "Оформить заказ онлайн": "Place an order online",
+  "go_back": "Go back",
+  "contact": {
+    "title": "Parcel acceptance point",
+    "addressTitle": "Address",
+    "address": "6829 Lankershim blvd, #214, North Hollywood, CA, 91605",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "formTitle": "Send us a message",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Message",
+    "submit": "Send",
+    "mapTitle": "Find us on the map"
+  },
+  "hero": {
+    "heroTitle": "Cargo transportation from California to the CIS countries from small parcels to cars.",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": ""
+  },
+  "service": {
+    "title": "Our Services"
+  },
+  "home_news": {
+    "see_all": "See all"
+  },
+  "reviews": {
+    "customer_reviews": "Customer Reviews"
+  },
+  "login": {
+    "welcome": "Welcome",
+    "text": "Sign in to continue",
+    "email": "Email",
+    "email_error_text": "Email is required",
+    "password": "Password",
+    "password_error_text": "Password is required",
+    "login": "Sign in",
+    "registration": "Register",
+    "forgot_password": "Forgot password?",
+    "remember_me": "Remember me"
+  },
+  "registration": {
+    "title": "Create account",
+    "subtitle": "Fill out the registration form",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "phone": "Phone",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "submit": "Sign up",
+    "divider_or": "or",
+    "existing_account": "Already have an account?",
+    "login": "Log in"
+  },
+  "errors": {
+    "required_email": "Email is required",
+    "required_name": "First name is required",
+    "required_phone": "Phone number is required",
+    "required_fio": "Last name is required",
+    "required_password": "Password is required",
+    "required_pass_confirmation": "Password confirmation is required",
+    "required": "Required field",
+    "invalid_email": "Invalid email",
+    "invalid_phone": "Invalid phone number",
+    "password_length": "Password must be at least 6 characters",
+    "password_match": "Passwords don't match"
+  }
+}

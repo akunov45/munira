@@ -1,0 +1,5 @@
+version: '3'
+
+include:
+  - ../ictlabllcback1/ictlab-back.yml
+  - ./ictlab-front.yml

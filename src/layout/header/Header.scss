@@ -1,0 +1,117 @@
+@use "../../colors" as colors;
+
+.header {
+	margin-top: 3px;
+	background-color: colors.$mainColor !important;
+
+	.menu {
+		a {
+			padding: 24px 10px;
+			border-radius: 0px;
+			&:hover {
+				background-color: #fff;
+				color: #4179c7;
+			}
+		}
+		a.active {
+			background-color: #fff;
+			font-weight: bold;
+			color: #4179c7;
+		}
+	}
+}
+
+
+.letter-r {
+	position: relative;
+	display: inline-block;
+	transform: skewX(-10deg);
+	color: white;
+	font-family: "Montserrat", sans-serif;
+}
+
+.letter-r::before {
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: -5px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-top: 5px solid white;
+}
+
+.letter-a {
+	position: relative;
+	font-family: "Montserrat", sans-serif;
+	display: inline-block;
+	transform: skewX(-10deg);
+	color: white;
+}
+
+.letter-a::before {
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: 3px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-top: 5px solid white;
+}
+
+@media (max-width: 1200px) {
+	.logo {
+		width: 58px;
+	}
+	.letter-a::before {
+		content: "";
+		position: absolute;
+		top:10px;
+		left: 0px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-top: 5px solid white;
+	}
+
+	.letter-r::before {
+		content: "";
+		position: absolute;
+		top: 10px;
+		left: -5px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-top: 5px solid white;
+	}
+}
+
+@media (max-width: 900px) {
+	.logo {
+		width: 55px;
+	}
+	.letter-a::before {
+		content: "";
+		position: absolute;
+		top:9px;
+		left: 0px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-top: 5px solid white;
+	}
+
+	.letter-r::before {
+		content: "";
+		position: absolute;
+		top: 9px;
+		left: -5px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-top: 5px solid white;
+	}
+}
+
+

@@ -1,0 +1,9 @@
+@use "../../colors" as colors;
+
+footer {
+  padding: 10px 0;
+  background: colors.$mainColor;
+  * {
+    color: #fff;
+  }
+}

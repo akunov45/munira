@@ -1,0 +1,24 @@
+
+.events {
+	padding: 10px 0;
+	display: flex !important;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	row-gap: 55px;
+}
+
+@media screen and (max-width: 425px) {
+	.flex {
+		flex-direction: column;
+		.btn {
+			width: 20px;
+			height: 60px;
+			font-size: 12px;
+			right: -10px;
+			bottom: -25px;
+		}
+	}
+	.text {
+		font-size: 14px !important;
+	}
+}

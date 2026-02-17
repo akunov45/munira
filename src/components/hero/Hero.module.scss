@@ -1,0 +1,14 @@
+.wrap {
+  //border-top: 2px solid #ffffff;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 85vh;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  @media (max-width: 600px) {
+    height: 60vh;
+    background-size: 730px;
+    background-position: center;
+  }
+}
