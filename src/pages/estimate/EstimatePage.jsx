@@ -58,7 +58,7 @@ const EstimatePage = () => {
         {/* Левая панель: Форма */}
         <Grid item xs={12} md={7} sx={{ bgcolor: '#fff', p: { xs: 3, md: 6 } }}>
           <Typography variant="overline" sx={{ color: '#379fab', fontWeight: 700, letterSpacing: 2 }}>
-            Munitext Home Textile
+            Aqvela Home Textile
           </Typography>
           <Typography variant="h4" sx={{ fontWeight: 700, mb: 4, color: '#2c3e50' }}>
             Калькулятор заказа

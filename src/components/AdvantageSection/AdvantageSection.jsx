@@ -92,7 +92,7 @@ const AdvantageSection = () => {
             letterSpacing: '1px'
           }}
         >
-          Преимущества Munira Home
+          Преимущества Aqvela Home
         </Typography>
 
         <Typography

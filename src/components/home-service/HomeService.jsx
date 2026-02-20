@@ -67,7 +67,7 @@ function HomeService() {
             variant="h4"
             sx={{ fontWeight: 800, mt: 1, textTransform: 'uppercase' }}
           >
-            {t("service.title", "Преимущества Munitext")}
+            {t("service.title", "Преимущества Aqvela")}
           </Typography>
         </Box>
 

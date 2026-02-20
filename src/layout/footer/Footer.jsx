@@ -59,7 +59,7 @@ function Footer() {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                 <EmailIcon sx={{ color: '#379fab' }} fontSize="small" />
                 <Typography variant="body2" sx={{ color: '#fff' }}>
-                  info@munitext.kg
+                  info@aqvela.kg
                 </Typography>
               </Box>
             </Box>

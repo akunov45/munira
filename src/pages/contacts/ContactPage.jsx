@@ -58,7 +58,7 @@ function ContactPage() {
 
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">Электронная почта:</Typography>
-                <Typography variant="body1">info@munitext.kg</Typography>
+                <Typography variant="body1">info@aqvela.kg</Typography>
               </Box>
             </CardContent>
           </Card>

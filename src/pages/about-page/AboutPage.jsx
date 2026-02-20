@@ -71,7 +71,7 @@ const AboutPage = () => {
             <Box
               component="img"
               src="https://i.pinimg.com/736x/1a/36/b5/1a36b5ba30667fe3ad98b4c647e484d0.jpg"
-              alt="Munitext Production"
+              alt="Aqvela Production"
               sx={{ width: '100%', borderRadius: 4, boxShadow: '20px 20px 0px #379fab20' }}
             />
           </Grid>
