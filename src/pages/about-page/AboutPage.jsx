@@ -27,8 +27,10 @@ const AboutPage = () => {
         }}
       >
         <Container maxWidth="md">
-          <Typography variant="h3" fontWeight={800} gutterBottom>
-            О КОМПАНИИ MUNITEXT
+          <Typography variant="h3" fontWeight={800} gutterBottom sx={{
+            textTransform:'uppercase'
+          }}>
+            О КОМПАНИИ aqvela
           </Typography>
           <Typography variant="h6" sx={{ opacity: 0.9, fontWeight: 300 }}>
             Мы создаем домашний текстиль, который превращает обычный дом в пространство исключительного комфорта.

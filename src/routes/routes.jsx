@@ -15,7 +15,7 @@ export const headerRoutes = [
     name: "Услуги",
     linkTo: "/service",
     element: <ServicesPage />,
-    disabled: false
+    disabled: true
   },
   {
     name: "Расчет стоимости",
@@ -27,12 +27,12 @@ export const headerRoutes = [
     name: "О Нас",
     linkTo: "/about-us",
     element: <AboutPage />,
-    disabled: true
+    disabled: false
   },
   {
     name: "Контакты",
     linkTo: "/contacts",
     element: <ContactPage />,
-    disabled: false
+    disabled: true
   },
 ];

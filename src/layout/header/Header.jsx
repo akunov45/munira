@@ -45,9 +45,13 @@ function ResponsiveAppBar() {
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link to={"/"} style={{ display: 'flex', alignItems: 'center' }}>
-            MUNITEXT
-          </Link>
+          <Box sx={{
+            mr: { lg: "100px" }
+          }}>
+            <Link to={"/"} style={{ display: 'flex', textTransform: "uppercase", alignItems: 'center', color: "white" }}>
+              Aqvela
+            </Link>
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
             <IconButton
               size="large"
@@ -77,7 +81,7 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {headerRoutes.map((page) => (
+              {headerRoutes.filter((r) => !r.disabled).map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                   <Button sx={{
                     color: 'black',
@@ -90,7 +94,7 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
           <Box className="menu" sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
-            {headerRoutes.map((page) => (
+            {headerRoutes.filter((r) => !r.disabled).map((page) => (
               <Button
                 component={NavLink}
                 to={page.linkTo}

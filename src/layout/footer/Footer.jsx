@@ -25,8 +25,8 @@ function Footer() {
 
           {/* Контакты */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#379fab' }}>
-              MUNITEXT Home Textile
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#379fab', textTransform:"uppercase" , color:"white"}}>
+              aqvela Home Textile
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
               <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
@@ -115,7 +115,7 @@ function Footer() {
 
         <Box textAlign="center" sx={{ opacity: 0.6 }}>
           <Typography variant="caption">
-            © {new Date().getFullYear()} MUNITEXT Home Textile. Производство и продажа текстиля в Кыргызстане.
+            © {new Date().getFullYear()} Aqvela Home Textile. Производство и продажа текстиля в Кыргызстане.
           </Typography>
         </Box>
       </Container>
