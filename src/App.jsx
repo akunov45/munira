@@ -10,9 +10,10 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import AboutPage from "./pages/about-page/AboutPage.jsx";
 import NotFoundPage from "./pages/not-found/NotFoundPage.jsx";
 import SignUp from "./pages/login-page/SignUp.jsx";
+import CatalogPage from "./pages/catalog/CatalogPage.jsx";
 
 function App() {
-	
+
 	return (
 		<>
 			<ScrollToTop/>
@@ -27,6 +28,7 @@ function App() {
 					<Route path={'service/:id'} element={<Service/>}/>
 					<Route path={'event/:id'} element={<Event/>}/>
 					<Route path={'about'} element={<AboutPage/>}/>
+          <Route path={'catalog'} element={<CatalogPage />}/>
 					<Route path={'*'} element={<NotFoundPage/>}/>
 				</Route>
 			</Routes>

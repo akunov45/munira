@@ -2,10 +2,12 @@ import { Box, Container, Typography, Stack } from "@mui/material";
 import CommonButton from "../UI/Button.jsx";
 // import HeroBg from "../../assets/hero2.webp";
 import cls from "./Hero.module.scss";
+import { useNavigate } from "react-router-dom"
 
 const HeroBg = 'https://i.pinimg.com/1200x/27/ce/02/27ce0232df3e16219c3e9c6d40b63345.jpg'
 
 const Hero = () => {
+  const navigate = useNavigate()
 
   return (
     <Box
@@ -48,7 +50,7 @@ const Hero = () => {
                 color: 'rgba(255,255,255,0.8)'
               }}
             >
-              Munitext Home Collection
+              Aqvela Home Collection
             </Typography>
           </Box>
 
@@ -83,6 +85,9 @@ const Hero = () => {
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <CommonButton
+              onClick={() => {
+                navigate('/catalog')
+               }}
               sx={{
                 bgcolor: "#379fab",
                 color: "#fff",
