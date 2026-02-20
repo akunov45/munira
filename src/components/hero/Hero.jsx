@@ -64,7 +64,7 @@ const Hero = () => {
               textShadow: '2px 2px 10px rgba(0,0,0,0.3)'
             }}
           >
-            Искусство уюта <br />
+            <span style={{ color: '#fff' }}>Искусство уюта </span>  <br />
             <span style={{ color: '#379fab' }}>в вашем доме</span>
           </Typography>
 

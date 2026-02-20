@@ -10,7 +10,7 @@ import CommonButton from "../../components/UI/Button.jsx";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import AdvantageSection from "../../components/AdvantageSection/AdvantageSection.jsx";
-import TextilePage from "../events-page/EventsPage.jsx";
+import TextilePage from "../news-page/NewsPage.jsx";
 
 function HomePage() {
   const { data: news, isLoading } = useGetNewsQuery()

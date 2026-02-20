@@ -1,14 +1,14 @@
 import AboutPage from "../pages/about-page/AboutPage";
 import ContactPage from "../pages/contacts/ContactPage";
 import EstimatePage from "../pages/estimate/EstimatePage";
-import EventsPage from "../pages/events-page/EventsPage";
+import NewsPage from "../pages/news-page/NewsPage";
 import ServicesPage from "../pages/services-page/ServicesPage";
 
 export const headerRoutes = [
   {
     name: "Новости и события",
     linkTo: "/news",
-    element: <EventsPage />,
+    element: <NewsPage />,
     disabled: false
   },
   {
