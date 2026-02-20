@@ -2,9 +2,11 @@ import { useState, useMemo } from 'react';
 import {
   Box, Grid, List, ListItem, ListItemButton,
   ListItemText, Typography, MenuItem, Select, FormControl, InputLabel,
-  Card, CardMedia, CardContent, Chip, Stack, Paper, Divider, Button
+  Card, CardMedia, CardContent, Chip, Stack, Paper, Divider, Button,
+  Drawer, IconButton, useMediaQuery, useTheme
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import MenuIcon from '@mui/icons-material/Menu'; // Иконка для мобильного меню
 
 // 1. БОЛЬШОЙ МАССИВ ТОВАРОВ (Пример для разных категорий)
 const productsData = [
@@ -45,15 +47,18 @@ const menuData = [
 ];
 
 const CatalogPage = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   const [activeTab, setActiveTab] = useState('bathrobes');
-  const [activeSub, setActiveSub] = useState('Все'); // Состояние подкатегории
+  const [activeSub, setActiveSub] = useState('Все');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Фильтры
   const [fabricFilter, setFabricFilter] = useState('');
   const [sizeFilter, setSizeFilter] = useState('');
   const [densityFilter, setDensityFilter] = useState('');
 
-  // ЛОГИКА ФИЛЬТРАЦИИ
   const filteredProducts = useMemo(() => {
     return productsData.filter(product => {
       const matchTab = product.category === activeTab;
@@ -61,7 +66,6 @@ const CatalogPage = () => {
       const matchFabric = fabricFilter === '' || product.fabric === fabricFilter;
       const matchSize = sizeFilter === '' || product.size === sizeFilter;
       const matchDensity = densityFilter === '' || product.density === densityFilter;
-
       return matchTab && matchSub && matchFabric && matchSize && matchDensity;
     });
   }, [activeTab, activeSub, fabricFilter, sizeFilter, densityFilter]);
@@ -72,47 +76,82 @@ const CatalogPage = () => {
     setFabricFilter('');
     setSizeFilter('');
     setDensityFilter('');
+    setMobileMenuOpen(false); // Закрываем меню на мобилке после выбора
   };
 
   const currentCategoryData = menuData.find(m => m.id === activeTab);
 
-  return (
-    <Box sx={{ display: 'flex', minHeight: "100vh", bgcolor: '#f9f9f9' }}>
+  // Содержимое бокового меню (вынесено для повторного использования)
+  const sidebarContent = (
+    <Box sx={{ width: 280, py: 2 }}>
+      <Typography variant="h6" sx={{ px: 3, mb: 3, fontWeight: 800, color: '#379fab' }}>
+        AQVELA КАТАЛОГ
+      </Typography>
+      <List sx={{ px: 1 }}>
+        {menuData.map((cat) => (
+          <ListItem key={cat.id} disablePadding sx={{ mb: 0.5 }}>
+            <ListItemButton
+              selected={activeTab === cat.id}
+              onClick={() => handleTabChange(cat.id)}
+              sx={{
+                borderRadius: 2,
+                '&.Mui-selected': { bgcolor: '#379fab15', color: '#379fab' },
+              }}
+            >
+              <ListItemText primary={cat.label} primaryTypographyProps={{ fontWeight: activeTab === cat.id ? 700 : 500 }} />
+              <ChevronRightIcon sx={{ fontSize: 18, opacity: 0.3 }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
-      {/* ЛЕВАЯ КОЛОНКА */}
-      <Box sx={{ width: 280, bgcolor: 'white', borderRight: '1px solid #eee', py: 2, position: 'sticky', top: 0, height: '100vh' }}>
-        <Typography variant="h6" sx={{ px: 3, mb: 3, fontWeight: 800, color: '#379fab', letterSpacing: 1 }}>
-          AQVELA КАТАЛОГ
-        </Typography>
-        <List sx={{ px: 1 }}>
-          {menuData.map((cat) => (
-            <ListItem key={cat.id} disablePadding sx={{ mb: 0.5 }}>
-              <ListItemButton
-                selected={activeTab === cat.id}
-                onClick={() => handleTabChange(cat.id)}
-                sx={{
-                  borderRadius: 2,
-                  '&.Mui-selected': { bgcolor: '#379fab15', color: '#379fab' },
-                  '&:hover': { bgcolor: '#379fab08' }
-                }}
-              >
-                <ListItemText primary={cat.label} primaryTypographyProps={{ fontWeight: activeTab === cat.id ? 700 : 500 }} />
-                <ChevronRightIcon sx={{ fontSize: 18, opacity: 0.3 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+  return (
+    <Box sx={{ display: 'flex', minHeight: "100vh", bgcolor: '#f9f9f9', flexDirection: { xs: 'column', md: 'row' } }}>
+
+      {/* 1. БОКОВОЕ МЕНЮ (Только для Десктопа) */}
+      {!isMobile && (
+        <Box sx={{ width: 280, bgcolor: 'white', borderRight: '1px solid #eee', position: 'sticky', top: 0, height: '100vh' }}>
+          {sidebarContent}
+        </Box>
+      )}
+
+      {/* 2. МОБИЛЬНАЯ ШАПКА КАТАЛОГА */}
+      {isMobile && (
+        <Paper square elevation={1} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, position: 'sticky', top: 0, zIndex: 1000 }}>
+          <IconButton onClick={() => setMobileMenuOpen(true)}>
+            <MenuIcon color="primary" />
+          </IconButton>
+          <Typography variant="h6" sx={{ fontWeight: 800, color: '#379fab', flexGrow: 1 }}>
+            AQVELA
+          </Typography>
+        </Paper>
+      )}
+
+      {/* DRAWER ДЛЯ МОБИЛОК */}
+      <Drawer open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
+        {sidebarContent}
+      </Drawer>
 
       {/* ПРАВАЯ ЧАСТЬ */}
       <Box sx={{ flexGrow: 1, p: { xs: 2, md: 4 } }}>
 
-        {/* 1. ПОДКАТЕГОРИИ (Верхний ряд) */}
-        <Box sx={{ mb: 3, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+        {/* 3. ПОДКАТЕГОРИИ (С горизонтальным скроллом на мобилках) */}
+        <Box sx={{
+          mb: 3,
+          display: 'flex',
+          gap: 1,
+          overflowX: 'auto', // Включаем скролл
+          pb: 1, // Отступ для полосы прокрутки
+          '&::-webkit-scrollbar': { display: 'none' }, // Прячем полосу прокрутки
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none'
+        }}>
           <Button
             variant={activeSub === 'Все' ? 'contained' : 'outlined'}
             onClick={() => setActiveSub('Все')}
-            sx={{ borderRadius: 5, textTransform: 'none', bgcolor: activeSub === 'Все' ? '#379fab' : '' }}
+            sx={{ borderRadius: 5, textTransform: 'none', whiteSpace: 'nowrap', minWidth: 'fit-content' }}
           >
             Все
           </Button>
@@ -121,92 +160,85 @@ const CatalogPage = () => {
               key={sub}
               variant={activeSub === sub ? 'contained' : 'outlined'}
               onClick={() => setActiveSub(sub)}
-              sx={{ borderRadius: 5, textTransform: 'none', bgcolor: activeSub === sub ? '#379fab' : '', color: activeSub === sub ? 'white' : '#666', borderColor: '#ddd' }}
+              sx={{
+                borderRadius: 5,
+                textTransform: 'none',
+                whiteSpace: 'nowrap',
+                minWidth: 'fit-content',
+                bgcolor: activeSub === sub ? '#379fab' : 'white'
+              }}
             >
               {sub}
             </Button>
           ))}
         </Box>
 
-        {/* 2. ПАНЕЛЬ ФИЛЬТРОВ */}
-        <Paper elevation={0} sx={{ p: 2, mb: 4, borderRadius: 3, border: '1px solid #eee', display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center', bgcolor: 'white' }}>
-          <FormControl size="small" sx={{ minWidth: 160 }}>
-            <InputLabel>Тип ткани</InputLabel>
-            <Select value={fabricFilter} label="Тип ткани" onChange={(e) => setFabricFilter(e.target.value)}>
-              <MenuItem value="">Любая</MenuItem>
-              <MenuItem value="Махровые (Double touch)">Махра</MenuItem>
-              <MenuItem value="Вафельные халаты">Вафельная</MenuItem>
-              <MenuItem value="Велюровые">Велюр</MenuItem>
-              <MenuItem value="Сатин">Сатин</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl size="small" sx={{ minWidth: 120 }}>
-            <InputLabel>Размер</InputLabel>
-            <Select value={sizeFilter} label="Размер" onChange={(e) => setSizeFilter(e.target.value)}>
-              <MenuItem value="">Все</MenuItem>
-              <MenuItem value="S">S</MenuItem>
-              <MenuItem value="M">M</MenuItem>
-              <MenuItem value="L">L</MenuItem>
-              <MenuItem value="XL">XL</MenuItem>
-              <MenuItem value="70x140">70x140</MenuItem>
-              <MenuItem value="Евро">Евро</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl size="small" sx={{ minWidth: 140 }}>
-            <InputLabel>Плотность</InputLabel>
-            <Select value={densityFilter} label="Плотность" onChange={(e) => setDensityFilter(e.target.value)}>
-              <MenuItem value="">Все gsm</MenuItem>
-              <MenuItem value="250 г/м²">250 г/м²</MenuItem>
-              <MenuItem value="400 г/м²">400 г/м²</MenuItem>
-              <MenuItem value="500 г/м²">500 г/м²</MenuItem>
-              <MenuItem value="700 г/м²">700 г/м²</MenuItem>
-            </Select>
-          </FormControl>
-
-          <Typography
-            onClick={() => { setFabricFilter(''); setSizeFilter(''); setDensityFilter(''); setActiveSub('Все'); }}
-            sx={{ cursor: 'pointer', color: '#999', fontSize: '0.85rem', '&:hover': { color: '#379fab' } }}
-          >
-            Сбросить всё
-          </Typography>
+        {/* 4. ПАНЕЛЬ ФИЛЬТРОВ (Адаптивная сетка) */}
+        <Paper elevation={0} sx={{ p: 2, mb: 4, borderRadius: 3, border: '1px solid #eee', bgcolor: 'white' }}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs={12} sm={4}>
+              <FormControl fullWidth size="small">
+                <InputLabel>Ткань</InputLabel>
+                <Select value={fabricFilter} label="Ткань" onChange={(e) => setFabricFilter(e.target.value)}>
+                  <MenuItem value="">Любая</MenuItem>
+                  <MenuItem value="Махровые (Double touch)">Махра</MenuItem>
+                  <MenuItem value="Вафельные халаты">Вафельная</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <FormControl fullWidth size="small">
+                <InputLabel>Размер</InputLabel>
+                <Select value={sizeFilter} label="Размер" onChange={(e) => setSizeFilter(e.target.value)}>
+                  <MenuItem value="">Все</MenuItem>
+                  <MenuItem value="L">L</MenuItem>
+                  <MenuItem value="XL">XL</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <FormControl fullWidth size="small">
+                <InputLabel>Плотность</InputLabel>
+                <Select value={densityFilter} label="Плотность" onChange={(e) => setDensityFilter(e.target.value)}>
+                  <MenuItem value="">Все gsm</MenuItem>
+                  <MenuItem value="400 г/м²">400 г/м²</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} sm={2} sx={{ textAlign: 'center' }}>
+              <Typography
+                onClick={() => { setFabricFilter(''); setSizeFilter(''); setDensityFilter(''); }}
+                sx={{ cursor: 'pointer', color: '#999', fontSize: '0.85rem', '&:hover': { color: '#379fab' } }}
+              >
+                Сбросить
+              </Typography>
+            </Grid>
+          </Grid>
         </Paper>
 
-        {/* 3. СЕТКА ТОВАРОВ */}
-        <Typography variant="h5" sx={{ mb: 3, fontWeight: 800, color: '#222' }}>
+        {/* 5. СЕТКА ТОВАРОВ */}
+        <Typography variant="h5" sx={{ mb: 3, fontWeight: 800, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
           {activeSub === 'Все' ? currentCategoryData?.label : activeSub}
-          <Typography component="span" sx={{ ml: 2, color: '#999', fontSize: '1rem', fontWeight: 400 }}>
-            ({filteredProducts.length} товаров)
+          <Typography component="span" sx={{ ml: 2, color: '#999', fontSize: '0.9rem' }}>
+            ({filteredProducts.length})
           </Typography>
         </Typography>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {filteredProducts.map((product) => (
             <Grid item xs={12} sm={6} lg={4} key={product.id}>
-              <Card elevation={0} sx={{ borderRadius: 4, border: '1px solid #eee', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <Box sx={{ position: 'relative' }}>
-                  <CardMedia component="img" height="280" image={product.image} alt={product.title} />
-                  <Chip label={product.subcategory} size="small" sx={{ position: 'absolute', top: 12, left: 12, bgcolor: 'rgba(255,255,255,0.9)', fontWeight: 600 }} />
-                </Box>
-
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, fontSize: '1.1rem' }}>{product.title}</Typography>
-
-                  <Stack spacing={1} sx={{ mb: 2 }}>
-                    <Typography variant="body2" color="text.secondary">Ткань: <b>{product.fabric}</b></Typography>
-                    <Typography variant="body2" color="text.secondary">Размер: <b>{product.size}</b></Typography>
-                    <Typography variant="body2" color="text.secondary">Плотность: <b>{product.density}</b></Typography>
+              <Card elevation={0} sx={{ borderRadius: 4, border: '1px solid #eee' }}>
+                <CardMedia component="img" height={isMobile ? "200" : "280"} image={product.image} alt={product.title} />
+                <CardContent>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1, lineHeight: 1.2 }}>{product.title}</Typography>
+                  <Stack direction="row" spacing={1} sx={{ mb: 2, overflowX: 'auto', '&::-webkit-scrollbar': { display: 'none' } }}>
+                    <Chip label={product.size} size="small" variant="outlined" />
+                    <Chip label={product.density} size="small" />
                   </Stack>
-
-                  <Divider sx={{ my: 1.5 }} />
-
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography variant="h6" sx={{ color: '#379fab', fontWeight: 800 }}>
-                      {product.price} сом
-                    </Typography>
-                    <Typography variant="caption" sx={{ color: '#999' }}>В наличии</Typography>
-                  </Box>
+                  <Divider sx={{ my: 1 }} />
+                  <Typography variant="h6" color="#379fab" sx={{ fontWeight: 800 }}>
+                    {product.price} сом
+                  </Typography>
                 </CardContent>
               </Card>
             </Grid>
