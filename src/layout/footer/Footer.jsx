@@ -25,7 +25,7 @@ function Footer() {
 
           {/* Контакты */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#379fab', textTransform:"uppercase" , color:"white"}}>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold',  textTransform:"uppercase" , color:"white"}}>
               aqvela Home Textile
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
