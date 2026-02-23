@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Stack, Typography, useTheme, Avatar, useMediaQuery } from '@mui/material';
-// Иконки под нишу текстиля
+
 import FactoryIcon from '@mui/icons-material/Factory';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -16,7 +16,7 @@ const AdvantageSection = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
-  // Твои цвета из :root
+  
   const COLORS = {
     green: '#4A707A',
     greenHover: '#426B69',

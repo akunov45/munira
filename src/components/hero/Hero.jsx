@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Stack } from "@mui/material";
 import CommonButton from "../UI/Button.jsx";
-// import HeroBg from "../../assets/hero2.webp";
+
 import cls from "./Hero.module.scss";
 import { useNavigate } from "react-router-dom"
 
@@ -17,7 +17,7 @@ const Hero = () => {
         backgroundImage: `url(${HeroBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        // Убираем отступ сверху, если хедер прозрачный
+
         mt: { xs: "-58px", sm: "-65px", md: "-65px", lg: "-74px" },
         height: { xs: '80vh', md: '90vh' },
         display: 'flex',
@@ -25,7 +25,7 @@ const Hero = () => {
         color: '#fff',
       }}
     >
-      {/* Легкий градиент вместо сплошного синего цвета */}
+
       <Box
         sx={{
           position: 'absolute',
@@ -38,7 +38,7 @@ const Hero = () => {
       <Container maxWidth="xl" sx={{ zIndex: 2 }}>
         <Box sx={{ maxWidth: { xs: '100%', md: '800px' } }}>
 
-          {/* Маленький штрих над заголовком */}
+          
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
             <Box sx={{ width: '40px', height: '2px', bgcolor: '#379fab' }} />
             <Typography
@@ -94,7 +94,7 @@ const Hero = () => {
                 px: 6,
                 py: 2,
                 fontSize: '1rem',
-                borderRadius: '0px', // Квадратные кнопки выглядят более "фэшн"
+                borderRadius: '0px',
                 '&:hover': { bgcolor: '#2e8691' }
               }}
             >

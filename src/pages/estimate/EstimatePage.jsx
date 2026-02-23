@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box, Container, Typography, TextField, MenuItem,
-  FormControlLabel, Checkbox, Grid, Divider, Fade, Paper,
+  FormControlLabel, Checkbox, Grid, Divider, Fade,
   Stack
 } from "@mui/material";
 import CommonButton from "../../components/UI/Button.jsx";
 
-// Имитация данных, которые раньше шли с бекенда
 const productCategories = [
   { id: 1, name: "Халаты махровые (Премиум)", price: 2800 },
   { id: 2, name: "Халаты вафельные", price: 1500 },
@@ -20,8 +19,8 @@ const EstimatePage = () => {
   const [form, setForm] = useState({
     quantity: "",
     categoryId: "",
-    branding: false, // Вышивка логотипа
-    express: false,  // Срочный пошив
+    branding: false,
+    express: false,
   });
 
   const [calculatedPrice, setCalculatedPrice] = useState(null);
@@ -37,15 +36,14 @@ const EstimatePage = () => {
   const handleCalculate = (e) => {
     e.preventDefault();
 
-    // Находим выбранный товар
     const selectedProduct = productCategories.find(p => p.id === form.categoryId);
 
     if (selectedProduct && form.quantity) {
       let base = Number(form.quantity) * selectedProduct.price;
 
-      // Добавочная стоимость
-      if (form.branding) base += (base * 0.10); // +10% за логотип
-      if (form.express) base += (base * 0.15);  // +15% за срочность
+
+      if (form.branding) base += (base * 0.10);
+      if (form.express) base += (base * 0.15);
 
       setCalculatedPrice(base);
     }
@@ -54,8 +52,6 @@ const EstimatePage = () => {
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 10 } }}>
       <Grid container spacing={0} sx={{ boxShadow: '0 20px 60px rgba(0,0,0,0.07)', borderRadius: 4, overflow: 'hidden' }}>
-
-        {/* Левая панель: Форма */}
         <Grid item xs={12} md={7} sx={{ bgcolor: '#fff', p: { xs: 3, md: 6 } }}>
           <Typography variant="overline" sx={{ color: '#379fab', fontWeight: 700, letterSpacing: 2 }}>
             Aqvela Home Textile
@@ -124,7 +120,6 @@ const EstimatePage = () => {
           </Box>
         </Grid>
 
-        {/* Правая панель: Итог */}
         <Grid item xs={12} md={5} sx={{ bgcolor: '#f1f8f9', p: { xs: 4, md: 6 }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
           <Typography variant="h6" sx={{ color: '#2c3e50', fontWeight: 600, mb: 1 }}>
             Итоговая стоимость

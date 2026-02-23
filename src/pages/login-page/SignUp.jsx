@@ -85,7 +85,7 @@ const SignUp = () => {
 						error={!!errors.phone}
 						helperText={errors.phone?.message}
 						{...register('phone', {
-							// required: 'Телефон обязателен',
+							
 							required: t("errors.required_phone"),
 							pattern: {
 								value: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,

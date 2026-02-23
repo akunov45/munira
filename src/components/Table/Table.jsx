@@ -19,7 +19,7 @@ const Table = ({
 	               stickyHeader = false
                }) => {
 	const theme = useTheme();
-	// Получаем ключи из первого элемента данных (если есть)
+	
 	const dataKeys = data.length > 0 ? Object.keys(data[0]) : [];
 	
 	return (

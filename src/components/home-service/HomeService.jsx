@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Card, CardContent, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
-// Иконки подходящие для текстиля
+
 import {
   FaCut,
   FaCheckDouble,
@@ -15,7 +15,7 @@ const services = [
     title: "Собственное производство",
     description: "Полный цикл изготовления: от выбора пряжи до финальной отделки изделий.",
     icon: <FaCut size={24} />,
-    color: "#379fab" // Ваш основной цвет
+    color: "#379fab" 
   },
   {
     title: "Контроль качества",
@@ -84,7 +84,7 @@ function HomeService() {
               sx={{
                 bgcolor: theme.palette.background.paper,
                 p: 1,
-                borderRadius: 0, // Квадратные формы выглядят более стильно для бренда текстиля
+                borderRadius: 0, 
                 border: '1px solid #eee',
                 boxShadow: 'none',
                 transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
@@ -113,7 +113,7 @@ function HomeService() {
                     justifyContent: 'center',
                     bgcolor: `#f0f0f0`,
                     color: '#444',
-                    borderRadius: '50%', // Круглые иконки смягчают дизайн
+                    borderRadius: '50%', 
                     mb: 3,
                     mx: 'auto',
                     transition: 'all 0.3s ease'

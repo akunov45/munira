@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import Table from "../../components/Table/Table.jsx";
 
-// Обновленные данные под текстиль (филиалы/склады)
+
 const branchData = [
   { country: "Кыргызстан", city: "Бишкек (Офис/Склад)", street: "ул. Льва Толстого", number: "126", phone: "+996 (555) 123 456" },
   { country: "Кыргызстан", city: "Бишкек (Магазин)", street: "ТЦ Азия Молл, 2 этаж", number: "-", phone: "+996 (700) 112 233" },
@@ -28,7 +28,6 @@ function ContactPage() {
       </Typography>
 
       <Grid container mb={6} spacing={4}>
-        {/* Инфо-карточка */}
         <Grid item xs={12} md={6}>
           <Card
             sx={{
@@ -64,7 +63,6 @@ function ContactPage() {
           </Card>
         </Grid>
 
-        {/* Форма обратной связи */}
         <Grid item xs={12} md={6}>
           <Card sx={{ p: 1, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
             <CardContent>
@@ -98,7 +96,6 @@ function ContactPage() {
           </Card>
         </Grid>
 
-        {/* Карта */}
         <Grid item xs={12}>
           <Typography variant="h6" fontWeight="bold" mb={3} textAlign="center">
             Мы на карте
@@ -117,14 +114,13 @@ function ContactPage() {
         </Grid>
       </Grid>
 
-      {/* Таблица филиалов */}
       <Box sx={{ mt: 6, mb: 4 }}>
         <Typography
           variant="h5"
           sx={{
             mb: 3,
             fontWeight: 'bold',
-            color: '#2c3e50', // Темно-серый вместо черного
+            color: '#2c3e50',
             position: 'relative',
             pl: 2,
             '&::before': {
@@ -134,7 +130,7 @@ function ContactPage() {
               top: '15%',
               height: '70%',
               width: '4px',
-              bgcolor: '#379fab', // Твой фирменный бирюзовый
+              bgcolor: '#379fab',
               borderRadius: '2px'
             }
           }}
@@ -149,16 +145,16 @@ function ContactPage() {
             overflow: 'hidden',
             border: '1px solid #e0e0e0',
             '& thead th': {
-              bgcolor: '#f8f9fa', // Светлый фон шапки
-              color: '#379fab',    // Бирюзовый текст в заголовках
+              bgcolor: '#f8f9fa',
+              color: '#379fab',
               fontWeight: 'bold',
               borderBottom: '2px solid #379fab'
             },
             '& tbody tr:nth-of-type(odd)': {
-              bgcolor: '#fafafa' // Полоски (striped) стали почти незаметными и мягкими
+              bgcolor: '#fafafa'
             },
             '& tbody tr:hover': {
-              bgcolor: '#f1f8f9 !important', // Очень нежный бирюзовый при наведении
+              bgcolor: '#f1f8f9 !important',
               transition: '0.2s'
             }
           }}

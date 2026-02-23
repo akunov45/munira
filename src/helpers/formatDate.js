@@ -42,5 +42,4 @@ export const formatDate = (dateStr, lang = 'ru') => {
 	
 	return formattedDate;
 };
-// formatDate('2025-04-01T12:30:00', 'en') => "April 1, 2025 12:30"
-// formatDate('2025-04-01T12:30:00', 'ru') => "1 апреля 2025 12:30"
+

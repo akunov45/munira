@@ -4,7 +4,7 @@ import {
   FaCloud,
   FaGlobeAmericas,
   FaUsers,
-  FaWarehouse, // Иконка склада
+  FaWarehouse,
   FaCheckCircle,
   FaTruckLoading
 } from 'react-icons/fa';
@@ -17,7 +17,7 @@ const AboutPage = () => {
     { label: 'Экспорт в страны', value: '15+', icon: <FaGlobeAmericas /> },
   ];
 
-  // Данные для секции складов
+
   const warehousePhotos = [
     { img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000', title: 'Склад готовой продукции' },
     { img: 'https://i.pinimg.com/1200x/fe/f2/5d/fef25dca6b00baa199d444e1c91de011.jpg', title: 'Запасы сырья' },
@@ -26,7 +26,7 @@ const AboutPage = () => {
 
   return (
     <Box sx={{ pb: 8 }}>
-      {/* 1. Header */}
+
       <Box sx={{ bgcolor: '#379fab', color: '#fff', py: { xs: 6, md: 10 }, mb: 6, textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h3" fontWeight={800} gutterBottom sx={{ textTransform: 'uppercase' }}>
@@ -39,7 +39,7 @@ const AboutPage = () => {
       </Box>
 
       <Container maxWidth="xl">
-        {/* 2. Основная инфо-секция */}
+
         <Grid container spacing={6} alignItems="center">
           <Grid item xs={12} md={6}>
             <Typography variant="overline" sx={{ color: '#379fab', fontWeight: 700, letterSpacing: 2 }}>
@@ -77,7 +77,7 @@ const AboutPage = () => {
           </Grid>
         </Grid>
 
-        {/* 3. Цифры (из вашего кода) */}
+
         <Box sx={{ mt: 10 }}>
           <Grid container spacing={3}>
             {stats.map((stat, index) => (
@@ -92,7 +92,7 @@ const AboutPage = () => {
           </Grid>
         </Box>
 
-        {/* 4. НОВАЯ СЕКЦИЯ: СКЛАДЫ И ЗАПАСЫ */}
+
         <Box sx={{ mt: 15 }}>
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={4}>
@@ -123,13 +123,13 @@ const AboutPage = () => {
           </Grid>
         </Box>
 
-        {/* 5. Ценности (Восстановленные 3 карточки) */}
+
         <Box sx={{ mt: 15, bgcolor: '#f9f9f9', p: { xs: 4, md: 8 }, borderRadius: 4 }}>
           <Typography variant="h4" textAlign="center" sx={{ fontWeight: 700, mb: 6 }}>
             Наши главные ценности
           </Typography>
           <Grid container spacing={4}>
-            {/* 1. Экологичность */}
+
             <Grid item xs={12} md={4}>
               <Stack spacing={2} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                 <Typography variant="h6" fontWeight={700} color="#379fab" sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
@@ -141,7 +141,7 @@ const AboutPage = () => {
               </Stack>
             </Grid>
 
-            {/* 2. Инновации */}
+
             <Grid item xs={12} md={4}>
               <Stack spacing={2} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                 <Typography variant="h6" fontWeight={700} color="#379fab" sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
@@ -153,7 +153,7 @@ const AboutPage = () => {
               </Stack>
             </Grid>
 
-            {/* 3. Партнерство */}
+            
             <Grid item xs={12} md={4}>
               <Stack spacing={2} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                 <Typography variant="h6" fontWeight={700} color="#379fab" sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>

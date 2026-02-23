@@ -23,7 +23,7 @@ function Footer() {
       <Container maxWidth="xl">
         <Grid container spacing={4}>
 
-          {/* Контакты */}
+
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold',  textTransform:"uppercase" , color:"white"}}>
               aqvela Home Textile
@@ -65,7 +65,7 @@ function Footer() {
             </Box>
           </Grid>
 
-          {/* Навигация */}
+
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Меню
@@ -86,7 +86,7 @@ function Footer() {
             </Box>
           </Grid>
 
-          {/* Соцсети */}
+          
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
               Мы в соцсетях

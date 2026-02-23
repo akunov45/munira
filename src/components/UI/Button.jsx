@@ -10,7 +10,7 @@ const CommonButton = ({children, sx, ...props}) => {
 			sx={{
 				color: '#000',
 				...sx,
-				// bgcolor: '#D50000',
+				
 				'&:hover': {
 					color: '#fff',
 					bgcolor: '#e41414',

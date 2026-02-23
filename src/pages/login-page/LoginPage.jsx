@@ -14,11 +14,11 @@ const LoginPage = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
-  
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
-  
+
   return (
     <Container component="main" maxWidth="xs">
       <Paper
@@ -96,9 +96,7 @@ const LoginPage = () => {
           </CommonButton>
           <Grid container sx={{my:"20px"}}>
             <Grid item xs>
-              {/*<Link href="#" variant="body2" >*/}
-              {/*  Забыли пароль?*/}
-              {/*</Link>*/}
+            
             </Grid>
             <Grid item>
               <Link to="/sign-up" style={{ textDecoration: 'underline' }} >

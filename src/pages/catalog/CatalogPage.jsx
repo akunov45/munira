@@ -6,26 +6,26 @@ import {
   Drawer, IconButton, useMediaQuery, useTheme
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import MenuIcon from '@mui/icons-material/Menu'; // Иконка для мобильного меню
+import MenuIcon from '@mui/icons-material/Menu';
 
-// 1. БОЛЬШОЙ МАССИВ ТОВАРОВ (Пример для разных категорий)
+
 const productsData = [
-  // ХАЛАТЫ
+
   { id: 1, title: 'Халат Double Touch (Синий)', category: 'bathrobes', subcategory: 'Мужские халаты', fabric: 'Махровые (Double touch)', size: 'L', density: '400 г/м²', price: '3500', image: 'https://i.pinimg.com/1200x/6c/d1/ba/6cd1baa074be21cef84a80b91976647b.jpg' },
   { id: 2, title: 'Халат вафельный "Кимоно"', category: 'bathrobes', subcategory: 'Унисекс модели', fabric: 'Вафельные халаты', size: 'XL', density: '250 г/м²', price: '2100', image: 'https://i.pinimg.com/1200x/32/a1/cd/32a1cd0f79a1f167c4eef5b0e79892bf.jpg' },
   { id: 3, title: 'Женский велюровый халат', category: 'bathrobes', subcategory: 'Женские халаты', fabric: 'Велюровые', size: 'S', density: '320 г/м²', price: '3800', image: 'https://i.pinimg.com/1200x/aa/f3/85/aaf38567178a6a24004da8d32c7db143.jpg' },
   { id: 4, title: 'Детский халат с капюшоном', category: 'bathrobes', subcategory: 'Детские и подростковые', fabric: 'Махровые (Double touch)', size: 'M', density: '380 г/м²', price: '1800', image: 'https://i.pinimg.com/736x/26/3e/cb/263ecb920ab1d1efa76eb431f3160e69.jpg' },
 
-  // ПОЛОТЕНЦА
+
   { id: 5, title: 'Набор полотенец HoReCa 5шт', category: 'towels', subcategory: 'Белые полотенца для HoReCa', fabric: 'Хлопок 100%', size: '70x140', density: '500 г/м²', price: '2500', image: 'https://i.pinimg.com/1200x/f7/86/ad/f786adfaa8b7847c8f3e96937ccbfbe0.jpg' },
   { id: 6, title: 'Полотенце для лица Soft', category: 'towels', subcategory: 'Для лица и рук (50x90)', fabric: 'Бамбук', size: '50x90', density: '450 г/м²', price: '450', image: 'https://i.pinimg.com/1200x/4a/aa/ab/4aaaaba33b379b3168069f88e7718647.jpg' },
   { id: 7, title: 'Коврик для ног махровый', category: 'towels', subcategory: 'Коврики для ног (50x70)', fabric: 'Хлопок 100%', size: '50x70', density: '700 г/м²', price: '650', image: 'https://i.pinimg.com/1200x/61/fb/12/61fb12a75fb9fced3bc0e4c2c5019307.jpg' },
 
-  // ПОСТЕЛЬНОЕ
+
   { id: 8, title: 'КПБ Страйп-Сатин White', category: 'bedding', subcategory: 'Страйп-сатин (для отелей)', fabric: 'Сатин', size: 'Евро', density: '145 г/м²', price: '5200', image: 'https://i.pinimg.com/736x/78/5b/3b/785b3b00a4961f6dda848e005bc1f00f.jpg' },
 ];
 
-// 2. ДАННЫЕ МЕНЮ С ПОДКАТЕГОРИЯМИ
+
 const menuData = [
   {
     id: 'bathrobes',
@@ -54,7 +54,7 @@ const CatalogPage = () => {
   const [activeSub, setActiveSub] = useState('Все');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Фильтры
+
   const [fabricFilter, setFabricFilter] = useState('');
   const [sizeFilter, setSizeFilter] = useState('');
   const [densityFilter, setDensityFilter] = useState('');
@@ -76,12 +76,12 @@ const CatalogPage = () => {
     setFabricFilter('');
     setSizeFilter('');
     setDensityFilter('');
-    setMobileMenuOpen(false); // Закрываем меню на мобилке после выбора
+    setMobileMenuOpen(false);
   };
 
   const currentCategoryData = menuData.find(m => m.id === activeTab);
 
-  // Содержимое бокового меню (вынесено для повторного использования)
+
   const sidebarContent = (
     <Box sx={{ width: 280, py: 2 }}>
       <Typography variant="h6" sx={{ px: 3, mb: 3, fontWeight: 800, color: '#379fab' }}>
@@ -110,14 +110,12 @@ const CatalogPage = () => {
   return (
     <Box sx={{ display: 'flex', minHeight: "100vh", bgcolor: '#f9f9f9', flexDirection: { xs: 'column', md: 'row' } }}>
 
-      {/* 1. БОКОВОЕ МЕНЮ (Только для Десктопа) */}
       {!isMobile && (
         <Box sx={{ width: 280, bgcolor: 'white', borderRight: '1px solid #eee', position: 'sticky', top: 0, height: '100vh' }}>
           {sidebarContent}
         </Box>
       )}
 
-      {/* 2. МОБИЛЬНАЯ ШАПКА КАТАЛОГА */}
       {isMobile && (
         <Paper square elevation={1} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, position: 'sticky', top: 0, zIndex: 1000 }}>
           <IconButton onClick={() => setMobileMenuOpen(true)}>
@@ -129,22 +127,19 @@ const CatalogPage = () => {
         </Paper>
       )}
 
-      {/* DRAWER ДЛЯ МОБИЛОК */}
       <Drawer open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
         {sidebarContent}
       </Drawer>
 
-      {/* ПРАВАЯ ЧАСТЬ */}
       <Box sx={{ flexGrow: 1, p: { xs: 2, md: 4 } }}>
 
-        {/* 3. ПОДКАТЕГОРИИ (С горизонтальным скроллом на мобилках) */}
         <Box sx={{
           mb: 3,
           display: 'flex',
           gap: 1,
-          overflowX: 'auto', // Включаем скролл
-          pb: 1, // Отступ для полосы прокрутки
-          '&::-webkit-scrollbar': { display: 'none' }, // Прячем полосу прокрутки
+          overflowX: 'auto',
+          pb: 1,
+          '&::-webkit-scrollbar': { display: 'none' },
           msOverflowStyle: 'none',
           scrollbarWidth: 'none'
         }}>
@@ -173,7 +168,6 @@ const CatalogPage = () => {
           ))}
         </Box>
 
-        {/* 4. ПАНЕЛЬ ФИЛЬТРОВ (Адаптивная сетка) */}
         <Paper elevation={0} sx={{ p: 2, mb: 4, borderRadius: 3, border: '1px solid #eee', bgcolor: 'white' }}>
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={12} sm={4}>
@@ -216,7 +210,6 @@ const CatalogPage = () => {
           </Grid>
         </Paper>
 
-        {/* 5. СЕТКА ТОВАРОВ */}
         <Typography variant="h5" sx={{ mb: 3, fontWeight: 800, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
           {activeSub === 'Все' ? currentCategoryData?.label : activeSub}
           <Typography component="span" sx={{ ml: 2, color: '#999', fontSize: '0.9rem' }}>

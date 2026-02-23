@@ -9,7 +9,7 @@ const TextField = forwardRef(({
 	                              id,
 	                              helperText,
 	                              error,
-	                              ...rest // Добавляем rest для получения register
+	                              ...rest 
                               }, ref) => {
 	return (
 		<MuiTextField

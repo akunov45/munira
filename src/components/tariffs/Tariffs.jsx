@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Typography, Grid, Card, CardContent, Button, List, ListItem, ListItemIcon, Box } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CommonButton from "../UI/Button.jsx"; // Иконка для списка преимуществ
+import CommonButton from "../UI/Button.jsx";
 
-// Данные о тарифах
+
 const pricingData = [
   {
     title: "Стандарт",
@@ -31,12 +31,12 @@ const pricingData = [
 const Tariffs = () => {
   return (
     <Container maxWidth="lg" sx={{ py: 8, textAlign: 'center' }}>
-      {/* Заголовок раздела */}
+
       <Typography variant="h6" sx={{ mb: 4, fontWeight: 'bold',  }}>
         Цены и тарифы
       </Typography>
-      
-      {/* Сетка с карточками тарифов */}
+
+
       <Grid container spacing={4}>
         {pricingData.map((plan, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
@@ -47,7 +47,7 @@ const Tariffs = () => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 boxShadow: 3,
-                border: plan.popular ? '2px solid #1976d2' : 'none', // Выделение популярного тарифа
+                border: plan.popular ? '2px solid #1976d2' : 'none',
                 '&:hover': {
                   boxShadow: 6,
                   transform: 'translateY(-5px)',
@@ -56,22 +56,22 @@ const Tariffs = () => {
               }}
             >
               <CardContent>
-                {/* Заголовок тарифа */}
+
                 <Typography variant="h5" sx={{ mb: 2, fontWeight: 'bold' }}>
                   {plan.title}
                 </Typography>
-                
-                {/* Цена */}
+
+
                 <Typography variant="h4" sx={{ mb: 2, color: 'primary.main', fontWeight: 'bold' }}>
                   {plan.price}
                 </Typography>
-                
-                {/* Описание */}
+
+
                 <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
                   {plan.description}
                 </Typography>
+
                 
-                {/* Список преимуществ */}
                 <List>
                   {plan.features.map((feature, idx) => (
                     <ListItem key={idx} sx={{ p: 0 }}>
@@ -83,7 +83,7 @@ const Tariffs = () => {
                   ))}
                 </List>
               </CardContent>
-              
+
               <Box sx={{ p: 2 }}>
                 <CommonButton
                   variant={plan.popular ? 'contained' : 'outlined'}

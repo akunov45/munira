@@ -1,12 +1,12 @@
 import { Box, Container, Pagination, Paper, Typography, Chip, Stack } from '@mui/material';
 import { useState } from 'react';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday'; // Не забудьте установить @mui/icons-material
-// import EventsCard from '../../components/events-card/EventsCard.jsx';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+
 
 function NewsPage() {
   const [pageNumber, setPageNumber] = useState(1);
 
-  // ДАННЫЕ ДЛЯ НОВОСТЕЙ (Жизнь компании)
+
   const newsData = [
     {
       id: 1,
@@ -49,7 +49,6 @@ function NewsPage() {
 
   return (
     <Container maxWidth="xl" sx={{ py: 6 }}>
-      {/* Заголовок */}
       <Box sx={{ mb: 6, textAlign: 'center' }}>
         <Typography variant="h3" sx={{ fontWeight: 800, color: '#333' }}>
           НОВОСТИ И СОБЫТИЯ
@@ -59,14 +58,13 @@ function NewsPage() {
         </Typography>
       </Box>
 
-      {/* Сетка постов */}
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: {
             xs: '1fr',
             sm: '1fr 1fr',
-            lg: '1fr 1fr' // Для новостей 2 в ряд смотрятся лучше (больше места тексту)
+            lg: '1fr 1fr'
           },
           gap: 4,
           mb: 6
@@ -84,7 +82,6 @@ function NewsPage() {
               '&:hover': { boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }
             }}
           >
-            {/* Картинка или Видео */}
             <Box sx={{ height: 280, position: 'relative', overflow: 'hidden' }}>
               <Box
                 component="img"
@@ -97,7 +94,6 @@ function NewsPage() {
               />
             </Box>
 
-            {/* Контент */}
             <Box sx={{ p: 3 }}>
               <Stack direction="row" spacing={1} alignItems="center" sx={{ color: 'text.disabled', mb: 1 }}>
                 <CalendarTodayIcon sx={{ fontSize: 16 }} />
@@ -123,7 +119,6 @@ function NewsPage() {
         ))}
       </Box>
 
-      {/* Пагинация */}
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Pagination
           count={3}

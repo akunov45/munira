@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography,} from '@mui/material';
 import Table from "../Table/Table.jsx";
 
-// Данные о маршрутах и сроках доставки
+
 const deliveryData = [
   { route: "Лос-Анжелес - Алматы", duration: "от 40 до 60 дней", cost: "$9" },
   { route: "Лос-Анжелес - Бишкек", duration: "от 40 до 60 дней", cost: "$9" },

@@ -15,14 +15,14 @@ const Reviews = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  // Твои брендовые цвета
+
   const COLORS = {
     green: '#4A707A',
     footer: '#2C4B72',
     grey: '#D1D9E0'
   };
 
-  // Используем статические данные
+
   const reviews = [
     {
       id: 1,
@@ -88,7 +88,7 @@ const Reviews = () => {
                   p: 4,
                   height: '100%',
                   borderRadius: '24px',
-                  bgcolor: '#F2F5F7', // Твой --color-white-cloud
+                  bgcolor: '#F2F5F7',
                   border: `1px solid ${COLORS.grey}`,
                   transition: '0.3s',
                   '&:hover': {
@@ -133,7 +133,7 @@ const Reviews = () => {
           ))}
         </Swiper>
 
-        {/* Кастомные кнопки навигации */}
+        
         {!isMobile && (
           <>
             <IconButton
