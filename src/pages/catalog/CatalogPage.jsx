@@ -14,7 +14,7 @@ const productsData = [
   { id: 3, title: 'Халат жаккардовый (или Bubble)', category: 'bathrobes', subcategory: 'Женские халаты', fabric: 'Велюровые', size: 'S', density: '320 $г/м²', price: '3800', image: '/x-parn.jpg' },
   { id: 4, title: '', category: 'bathrobes', subcategory: 'Детские и подростковые', fabric: 'Махровые (Double touch)', size: 'M', density: '380 г/м²', price: '1800', image: '/xal.jpg' },
   { id: 5, title: 'Набор полотенец HoReCa 6шт', category: 'towels', subcategory: 'Белые полотенца для HoReCa', fabric: 'Хлопок 100%', size: '70x140', density: '500 г/м²', price: '2500', image: '/pl-mcr.jpg' },
-  { id: 6, title: 'Полотенце для лица Soft', category: 'towels', subcategory: 'Для лица и рук (50x90)', fabric: 'Бамбук', size: '50x90', density: '450 г/м²', price: '450', image: '/m-text.jpg' },
+  { id: 6, title: 'Полотенце для лица Soft', category: 'towels', subcategory: 'Для лица и рук (50x90)', fabric: 'Бамбук', size: '50x90', density: '450 г/м²', price: '450', image: 'm-text.jpg' },
   { id: 7, title: 'Полотенце банное', category: 'towels', subcategory: 'Банные', fabric: 'Хлопок 100%', size: '50x70', density: '700 г/м²', price: '650', image: '/p-bannoe.jpg' },
   { id: 8, title: 'КПБ Страйп-Сатин White', category: 'bedding', subcategory: 'Страйп-сатин (для отелей)', fabric: 'Сатин', size: 'Евро', density: '145 г/м²', price: '5200', image: 'https://i.pinimg.com/736x/78/5b/3b/785b3b00a4961f6dda848e005bc1f00f.jpg' },
 ];
