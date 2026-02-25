@@ -148,7 +148,8 @@ const CatalogPage = () => {
               '&:hover': {
                 bgcolor: activeSub === 'Все' ? '#379fab' : '#f0f0f0',
                 borderColor: activeSub === 'Все' ? '#379fab' : 'black',
-              }, minWidth: 'fit-content' }}
+              }
+            }}
           >
             Все
           </Button>
