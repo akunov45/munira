@@ -146,7 +146,17 @@ const CatalogPage = () => {
           <Button
             variant={activeSub === 'Все' ? 'contained' : 'outlined'}
             onClick={() => setActiveSub('Все')}
-            sx={{ borderRadius: 5, textTransform: 'none', whiteSpace: 'nowrap', minWidth: 'fit-content' }}
+            sx={{
+              borderRadius: 5,
+              textTransform: 'none',
+              whiteSpace: 'nowrap',
+              minWidth: 'fit-content',
+              bgcolor: activeSub === 'Все' ? '#379fab' : 'white',
+              color: activeSub === 'Все' ? 'white' : 'black',
+              '&:hover': {
+                bgcolor: activeSub === 'Все' ? '#379fab' : '#f0f0f0',
+                borderColor: activeSub === 'Все' ? '#379fab' : 'black',
+              }, minWidth: 'fit-content' }}
           >
             Все
           </Button>
@@ -160,7 +170,13 @@ const CatalogPage = () => {
                 textTransform: 'none',
                 whiteSpace: 'nowrap',
                 minWidth: 'fit-content',
-                bgcolor: activeSub === sub ? '#379fab' : 'white'
+                bgcolor: activeSub === sub ? '#379fab' : 'white',
+                borderColor: activeSub === sub ? '#379fab' : 'black',
+                color: activeSub === sub ? 'white' : 'black',
+                '&:hover': {
+                  bgcolor: activeSub === sub ? '#379fab' : '#f0f0f0',
+                  borderColor: activeSub === sub ? '#379fab' : 'black',
+                }
               }}
             >
               {sub}

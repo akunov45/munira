@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Layout from './layout/Layout';
-import Event from "./pages/news-page/event/Event.jsx";
 import HomePage from "./pages/home-page/HomePage.jsx";
 import LoginPage from "./pages/login-page/LoginPage.jsx";
 import Service from "./pages/services-page/single-service/Service";
@@ -26,7 +25,6 @@ function App() {
           <Route path={'login'} element={<LoginPage />} />
           <Route path={'sign-up'} element={<SignUp />} />
           <Route path={'service/:id'} element={<Service />} />
-          <Route path={'event/:id'} element={<Event />} />
           <Route path={'about'} element={<AboutPage />} />
           <Route path={'catalog'} element={<CatalogPage />} />
           <Route path={'*'} element={<NotFoundPage />} />

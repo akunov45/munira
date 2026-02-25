@@ -1,14 +1,13 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import { AppBar, Box, Container, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar } from '@mui/material';
+import Select from '@mui/material/Select';
 import * as React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Select from '@mui/material/Select';
-import './Header.scss';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import CommonButton from "../../components/UI/Button.jsx";
 import { headerRoutes } from '../../routes/routes';
-import Logo from '../../assets/star.svg'
+import './Header.scss';
 
 function ResponsiveAppBar() {
   const navigate = useNavigate();

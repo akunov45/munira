@@ -10,19 +10,19 @@ import youtube from "../assets/youtube.jpg"
 const socialIcons = [
 	{
 		icon: tiktok,
-		link: "https://www.tiktok.com/@starmotorslogisti",
+		link: "https://www.tiktok.com/",
 	},
 	{
 		icon: instagram,
-		link: "https://www.instagram.com/star_motors_logistics/",
+		link: "https://www.instagram.com/",
 	},
 	{
 		icon: facebook,
-		link: "",
+		link: "#",
 	},
 	{
 		icon: youtube,
-		link: "",
+		link: "#",
 	}
 ]
 

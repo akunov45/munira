@@ -1,27 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.scss'
-import {BrowserRouter} from "react-router-dom";
-import "./config/i18n.js"
-import {Provider} from "react-redux";
-import {store} from "./redux/store.js";
-import {StyledEngineProvider} from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material/styles';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from "react-router-dom";
+import App from './App.jsx';
+import "./config/i18n/i18n.js";
+import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<BrowserRouter
-		future={{
-			v7_relativeSplatPath: true,
-			v7_startTransition: true
-		}}
-    basename='/munira'
+  <React.StrictMode>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+      basename='/munira'
     >
-		<Provider store={store}>
-			<React.StrictMode>
-				<StyledEngineProvider injectFirst>
-					<App/>
-				</StyledEngineProvider>
-			</React.StrictMode>
-		</Provider>
-	</BrowserRouter>
+      <StyledEngineProvider injectFirst>
+        <App />
+      </StyledEngineProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 )
