@@ -8,23 +8,16 @@ import {
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
 const productsData = [
-
-  { id: 1, title: 'Халат Double Touch (Синий)', category: 'bathrobes', subcategory: 'Мужские халаты', fabric: 'Махровые (Double touch)', size: 'L', density: '400 г/м²', price: '3500', image: 'https://i.pinimg.com/1200x/6c/d1/ba/6cd1baa074be21cef84a80b91976647b.jpg' },
-  { id: 2, title: 'Халат вафельный "Кимоно"', category: 'bathrobes', subcategory: 'Унисекс модели', fabric: 'Вафельные халаты', size: 'XL', density: '250 г/м²', price: '2100', image: 'https://i.pinimg.com/1200x/32/a1/cd/32a1cd0f79a1f167c4eef5b0e79892bf.jpg' },
-  { id: 3, title: 'Женский велюровый халат', category: 'bathrobes', subcategory: 'Женские халаты', fabric: 'Велюровые', size: 'S', density: '320 г/м²', price: '3800', image: 'https://i.pinimg.com/1200x/aa/f3/85/aaf38567178a6a24004da8d32c7db143.jpg' },
-  { id: 4, title: 'Детский халат с капюшоном', category: 'bathrobes', subcategory: 'Детские и подростковые', fabric: 'Махровые (Double touch)', size: 'M', density: '380 г/м²', price: '1800', image: 'https://i.pinimg.com/736x/26/3e/cb/263ecb920ab1d1efa76eb431f3160e69.jpg' },
-
-
-  { id: 5, title: 'Набор полотенец HoReCa 5шт', category: 'towels', subcategory: 'Белые полотенца для HoReCa', fabric: 'Хлопок 100%', size: '70x140', density: '500 г/м²', price: '2500', image: 'https://i.pinimg.com/1200x/f7/86/ad/f786adfaa8b7847c8f3e96937ccbfbe0.jpg' },
-  { id: 6, title: 'Полотенце для лица Soft', category: 'towels', subcategory: 'Для лица и рук (50x90)', fabric: 'Бамбук', size: '50x90', density: '450 г/м²', price: '450', image: 'https://i.pinimg.com/1200x/4a/aa/ab/4aaaaba33b379b3168069f88e7718647.jpg' },
-  { id: 7, title: 'Коврик для ног махровый', category: 'towels', subcategory: 'Коврики для ног (50x70)', fabric: 'Хлопок 100%', size: '50x70', density: '700 г/м²', price: '650', image: 'https://i.pinimg.com/1200x/61/fb/12/61fb12a75fb9fced3bc0e4c2c5019307.jpg' },
-
-
+  { id: 1, title: 'Халат вафельный (Премиум)', category: 'bathrobes', subcategory: 'Мужские халаты', fabric: 'Махровые (Double)', size: 'L', density: '400 г/м²', price: '3500', image: '/p-x2.jpg' },
+  { id: 2, title: 'Халат Синий и Белый', category: 'bathrobes', subcategory: 'Унисекс модели', fabric: 'Вафельные халаты', size: 'XL', density: '250 г/м²', price: '2100', image: '/px2.jpg' },
+  { id: 3, title: 'Халат жаккардовый (или Bubble)', category: 'bathrobes', subcategory: 'Женские халаты', fabric: 'Велюровые', size: 'S', density: '320 $г/м²', price: '3800', image: '/x-parn.jpg' },
+  { id: 4, title: '', category: 'bathrobes', subcategory: 'Детские и подростковые', fabric: 'Махровые (Double touch)', size: 'M', density: '380 г/м²', price: '1800', image: '/xal.jpg' },
+  { id: 5, title: 'Набор полотенец HoReCa 6шт', category: 'towels', subcategory: 'Белые полотенца для HoReCa', fabric: 'Хлопок 100%', size: '70x140', density: '500 г/м²', price: '2500', image: '/pl-mcr.jpg' },
+  { id: 6, title: 'Полотенце для лица Soft', category: 'towels', subcategory: 'Для лица и рук (50x90)', fabric: 'Бамбук', size: '50x90', density: '450 г/м²', price: '450', image: '/m-text.jpg' },
+  { id: 7, title: 'Полотенце банное', category: 'towels', subcategory: 'Банные', fabric: 'Хлопок 100%', size: '50x70', density: '700 г/м²', price: '650', image: '/p-bannoe.jpg' },
   { id: 8, title: 'КПБ Страйп-Сатин White', category: 'bedding', subcategory: 'Страйп-сатин (для отелей)', fabric: 'Сатин', size: 'Евро', density: '145 г/м²', price: '5200', image: 'https://i.pinimg.com/736x/78/5b/3b/785b3b00a4961f6dda848e005bc1f00f.jpg' },
 ];
-
 
 const menuData = [
   {
@@ -35,7 +28,7 @@ const menuData = [
   {
     id: 'towels',
     label: 'Полотенца',
-    subs: ['Банные (70x140)', 'Для лица и рук (50x90)', 'Белые полотенца для HoReCa', 'Коврики для ног (50x70)']
+    subs: [ 'Для лица и рук (50x90)', 'Белые полотенца для HoReCa', 'Банные', 'Для бассейна и пляжа']
   },
   {
     id: 'bedding',
@@ -43,7 +36,6 @@ const menuData = [
     subs: ['Страйп-сатин (для отелей)', 'Сатин люкс', 'Евро комплект']
   },
   { id: 'blankets_pillows', label: 'Подушки и одеяла', subs: ['Анатомические', 'Бамбук'] },
-  { id: 'kitchen_living', label: 'Кухня и декор', subs: ['Скатерти', 'Пледы'] }
 ];
 
 const CatalogPage = () => {

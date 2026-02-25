@@ -14,7 +14,7 @@ const socialIcons = [
 	},
 	{
 		icon: instagram,
-		link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/munira_home_textile_/",
 	},
 	{
 		icon: facebook,
