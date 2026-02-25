@@ -8,6 +8,8 @@ import {
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuIcon from '@mui/icons-material/Menu';
 
+const baseImgUrl = "https://akunov45.github.io/munira/"
+
 const productsData = [
   { id: 1, title: 'Халат вафельный (Премиум)', category: 'bathrobes', subcategory: 'Мужские халаты', fabric: 'Махровые (Double)', size: 'L', density: '400 г/м²', price: '3500', image: '/p-x2.jpg' },
   { id: 2, title: 'Халат Синий и Белый', category: 'bathrobes', subcategory: 'Унисекс модели', fabric: 'Вафельные халаты', size: 'XL', density: '250 г/м²', price: '2100', image: '/px2.jpg' },
@@ -230,7 +232,7 @@ const CatalogPage = () => {
           {filteredProducts.map((product) => (
             <Grid item xs={12} sm={6} lg={4} key={product.id}>
               <Card elevation={0} sx={{ borderRadius: 4, border: '1px solid #eee' }}>
-                <CardMedia component="img" height={isMobile ? "200" : "280"} image={product.image} alt={product.title} />
+                <CardMedia component="img" height={isMobile ? "200" : "280"} image={baseImgUrl +product.image} alt={product.title} />
                 <CardContent>
                   <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1, lineHeight: 1.2 }}>{product.title}</Typography>
                   <Stack direction="row" spacing={1} sx={{ mb: 2, overflowX: 'auto', '&::-webkit-scrollbar': { display: 'none' } }}>
